@@ -7,4 +7,19 @@
     class="list-group-item {{url()->current()==route('post.create')? 'active' : ''}}">
         <i class="fas fa-pen-nib pr-2"></i><span>新規投稿</span>
     </a>
+    <a href="{{route('home.mypost')}}"  
+    class="list-group-item {{url()->current()==route('home.mypost')?'active':''}}"> 
+        <i class="fas fa-user-edit pr-2"></i><span>自分の投稿</span>
+    </a>
+    <a href="{{route('home.mycomment')}}"
+    class="list-group-item {{url()->current()==route('home.mycomment')?'active':''}}">
+        <i class="fas fa-user-edit pr-2"></i><span>コメントした投稿</span>
+    </a>
+    @can('admin')
+    <a href="{{route('profile.index')}}" 
+    class="list-group-item {{url()->current()==route('profile.index')?'active':''}}">
+        <i class="fas fa-list pr-2"></i><span>ユーザーアカウント</span>
+    </a>
+    @endcan
+
 </div>

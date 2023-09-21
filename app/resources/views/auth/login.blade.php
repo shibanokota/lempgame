@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="jumbotron text-gray  d-flex align-items-center">
+    <div class="col-12 col-md-8 col-lg-6 mx-auto">
+        <h1 class="mb-3">GameReviewer</h1>
+        <p>懐かしのゲームについて語り合おう！</p> 
+        </a>
+    </div>
+</div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

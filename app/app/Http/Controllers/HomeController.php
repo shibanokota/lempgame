@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comment;
 
 class HomeController extends Controller
 {
@@ -27,5 +28,15 @@ class HomeController extends Controller
         $posts=Post::orderBy('created_at','desc')->get();
         $user=auth()->user();
         return view('home', compact('posts', 'user'));
+    }
+    public function mypost() {
+        $user=auth()->user()->id;
+        $posts=Post::where('user_id', $user)->orderBy('created_at', 'desc')->get();
+        return view('mypost', compact('posts'));
+    }
+    public function mycomment() {
+        $user=auth()->user()->id;
+        $comments=Comment::where('user_id', $user)->orderBy('created_at', 'desc')->get();
+        return view('mycomment', compact('comments'));
     }
 }

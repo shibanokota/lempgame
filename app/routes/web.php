@@ -12,12 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/post', 'PostController');
+Route::post('\post\comment\store','CommentController@store')->name('comment.store');
+Route::get('/mypost','HomeController@mypost')->name('home.mypost');
+Route::get('/mycomment','HomeController@mycomment')->name('home.mycomment');
+// 管理者用画面
+Route::middleware(['can:admin'])->group(function() {
+    Route::get('/profile/index', 'ProfileController@index')->name('profile.index');
+});
