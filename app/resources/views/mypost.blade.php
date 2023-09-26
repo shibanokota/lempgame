@@ -24,7 +24,9 @@
                         <img src="{{asset('storage/avatar/'.($post->user->avatar??'user_default.jpg'))}}"
                         class="rounded-circle" style="width:40px;height:40px;">
                         <div class="media-body ml-3"><a href="{{route('post.show', $post)}}">{{$post->title}}</a> 
-                            <div class="text-muted small">{{$post->user->name}}</div>
+                            <div class="text-muted small"> 
+                                {{$post->user->name??'削除されたユーザ'}}
+                            </div>
                         </div>
                         <div class="text-muted small ml-3">
                             <div>投稿日</div>

@@ -35,4 +35,5 @@ Route::middleware(['can:admin'])->group(function() {
 //ユーザ一覧
 Route::get('/profile/index', 'ProfileController@index')->name('profile.index');
 Route::delete('/profile/delete/{user}', 'ProfileController@delete')->name('profile.delete');
+
 });

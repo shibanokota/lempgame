@@ -48,8 +48,11 @@ class ProfileController extends Controller
         return back()->with('message', '情報を更新しました');
     }
     public function delete(User $user) {
+        $user->roles()->detach();
+        if($user->avatar !== 'user_default.jpg') {
+            Storage::delete('public/avatar/'.$user->avatar);
+        }
         $user->delete();
         return back()->with('message', 'ユーザーを削除しました');
-
     }
 }

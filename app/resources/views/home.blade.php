@@ -20,7 +20,7 @@
                             <a href="{{route('post.show', $post)}}">{{ $post->title }}</a>
                             <div class="text-muted small"> 
                                 <!-- {{-- ② 投稿者名 --}} -->
-                                {{ $post->user->name }}  
+                                {{$post->user->name??'削除されたユーザ'}}
                             </div>
                         </div>
                         <div class="text-muted small ml-3">

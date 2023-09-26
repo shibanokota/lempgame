@@ -5,7 +5,7 @@
         <img src="{{asset('storage/avatar/'.($post->user->avatar??'user_default.jpg'))}}"
         class="rounded-circle" style="width:40px;height:40px;">
         <div class="text-muted small mr-3"> 
-            {{$post->user->name}}
+            {{$post->user->name??'削除されたユーザ'}}
         </div>
         <h4>{{ $post->title }}</h4>
         @can('update', $post)
@@ -48,7 +48,7 @@
     <div class="card-header">
         <img src="{{asset('storage/avatar/'.($comment->user->avatar??'user_default.jpg'))}}"
         class="rounded-circle" style="width:40px;height:40px;">
-        {{$comment->user->name}}
+        {{$comment->user->name??'削除されたユーザ'}}
     </div>
     <div class="card-body">
         {{$comment->body}}
