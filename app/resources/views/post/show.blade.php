@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="card mb-4">
     <div class="card-header">
+        <img src="{{asset('storage/avatar/'.($post->user->avatar??'user_default.jpg'))}}"
+        class="rounded-circle" style="width:40px;height:40px;">
         <div class="text-muted small mr-3"> 
             {{$post->user->name}}
         </div>
@@ -42,10 +43,11 @@
 </div>
 
 <hr>
-@foreach ($post->comments as $comment)
+@foreach($post->comments as $comment)
 <div class="card mb-4">
-    
     <div class="card-header">
+        <img src="{{asset('storage/avatar/'.($comment->user->avatar??'user_default.jpg'))}}"
+        class="rounded-circle" style="width:40px;height:40px;">
         {{$comment->user->name}}
     </div>
     <div class="card-body">

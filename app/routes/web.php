@@ -27,7 +27,12 @@ Route::resource('/post', 'PostController');
 Route::post('\post\comment\store','CommentController@store')->name('comment.store');
 Route::get('/mypost','HomeController@mypost')->name('home.mypost');
 Route::get('/mycomment','HomeController@mycomment')->name('home.mycomment');
-// 管理者用画面
+//プロファイルの編集
+Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
+Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
+//管理者用
 Route::middleware(['can:admin'])->group(function() {
-    Route::get('/profile/index', 'ProfileController@index')->name('profile.index');
+//ユーザ一覧
+Route::get('/profile/index', 'ProfileController@index')->name('profile.index');
+Route::delete('/profile/delete/{user}', 'ProfileController@delete')->name('profile.delete');
 });

@@ -13,6 +13,8 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <div class="media flex-wrap w-100 align-items-center">
+                        <img src="{{asset('storage/avatar/'.($post->user->avatar??'user_default.jpg'))}}"
+                        class="rounded-circle" style="width:40px;height:40px;">
                         <div class="media-body ml-3"> 
                             <!-- {{-- ①件名 --}} -->
                             <a href="{{route('post.show', $post)}}">{{ $post->title }}</a>

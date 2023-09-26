@@ -15,6 +15,11 @@
     class="list-group-item {{url()->current()==route('home.mycomment')?'active':''}}">
         <i class="fas fa-user-edit pr-2"></i><span>コメントした投稿</span>
     </a>
+    <a href="{{route('profile.edit', auth()->user()->id)}}" 
+    class="list-group-item {{url()->current()==route('profile.edit', auth()->user()->id)?'active':''}}">
+        <i class="fas fa-id-badge pr-2"></i><span>プロフィール編集</span>
+    </a>
+
     @can('admin')
     <a href="{{route('profile.index')}}" 
     class="list-group-item {{url()->current()==route('profile.index')?'active':''}}">
