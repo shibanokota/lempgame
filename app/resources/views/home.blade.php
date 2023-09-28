@@ -6,6 +6,17 @@
 <div class="ml-2 mb-3">
     <i class="fas fa-home pr-2"></i>home
 </div>
+<form>
+    <div>
+        <label for="">日付検索</label>
+        <input type="date" name="from" placeholder="from_date" value="{{ $from }}">
+            <span class="mx-3">~</span>
+        <input type="date" name="until" placeholder="until_date" value="{{ $until }}">
+    </div>
+    <div>
+        <button type="submit">検索</button>
+    </div>
+</form>
 @foreach ($posts as $post)
 <div class="container-fluid mt-20" style="margin-left:-10px;">
     <div class="row">
@@ -41,7 +52,7 @@
 
                 <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
                     <div class="px-4 pt-3">
-                        @if ($post->comments->count())
+                    @if ($post->comments->count())
                         <span class="badge badge-success">
                             コメント {{$post->comments->count()}}件
                         </span>
@@ -50,6 +61,7 @@
                     @endif
 
                     </div>
+                    
                     <div class="px-4 pt-3"> 
                        <button type="button" class="btn btn-primary">
                           <a href="{{route('post.show', $post)}}" style="color:white;">コメントする</a>

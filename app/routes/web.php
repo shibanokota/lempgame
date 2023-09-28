@@ -30,6 +30,14 @@ Route::get('/mycomment','HomeController@mycomment')->name('home.mycomment');
 //プロファイルの編集
 Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
+//いいね機能
+
+
+//ログイン中のユーザーのみアクセス可能
+Route::group(['middleware' => ['auth']], function () {
+    //「ajaxlike.jsファイルのurl:'ルーティング'」に書くものと合わせる。
+    Route::post('ajaxlike', 'PostsController@ajaxlike')->name('posts.ajaxlike');
+});
 //管理者用
 Route::middleware(['can:admin'])->group(function() {
 //ユーザ一覧

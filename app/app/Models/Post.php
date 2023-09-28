@@ -21,4 +21,15 @@ class Post extends Model
     public function comments() {
         return $this->hasMany('App\Models\Comment');
     }
+    public function isLiked($user_id)
+    {
+        return $this->likes()->where('user_id', $user_id)->exists();
+    }
+    public static function getDate($from, $until)
+    {
+        //created_atが20xx/xx/xx ~ 20xx/xx/xxのデータを取得
+        $posts = Post::whereBetween("created_at", [$from, $until])->orderBy('created_at', 'desc')->get();
+
+        return $posts;
+    }
 }
