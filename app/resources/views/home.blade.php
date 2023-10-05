@@ -61,8 +61,22 @@
                     @endif
 
                     </div>
-                    
+                    <div class="px-4 pt-3">
+                    @if ($post->likes->count())
+                        <span class="badge badge-success">
+                            イイネ {{$post->likes->count()}}件
+                        </span>
+                    @else
+                        <span>イイネ0件</span>
+                    @endif
+
+                    </div>
                     <div class="px-4 pt-3"> 
+                    <script src="{{ asset('/js/like.js') }}"></script>
+                    <button onclick="like({{$post->id}})">イイネ</button>
+                    
+                    <script src="{{ asset('/js/unlike.js') }}"></script>
+                    <button onclick="unlike({{$post->id}})">取り消し</button>
                        <button type="button" class="btn btn-primary">
                           <a href="{{route('post.show', $post)}}" style="color:white;">コメントする</a>
                       </button> 

@@ -4,24 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
 class LikeController extends Controller
 {
-    public function store(Post $post)
+    public function store($postId)
     {
-        $user = Auth::user();
-        if($user->id != $post->user_id) {
-            if($post->isLiked(Auth::id())) {
-                // 対象のレコードを取得して、削除する。
-                $delete_record = $post->getLike($user->id);
-                $delete_record->delete();
-            } else {
-                $like = Like::firstOrCreate(
-                    array(
-                        'user_id' => Auth::user()->id,
-                        'post_id' => $post->id
-                    )
-                );
-            }
-        }
+        Auth::user()->like($postId);
+        return 'ok!'; //レスポンス内容
+    }
+
+    public function destroy($postId)
+    {
+        Auth::user()->unlike($postId);
+        return 'ok!'; //レスポンス内容
     }
 }

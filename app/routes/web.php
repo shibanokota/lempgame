@@ -31,7 +31,8 @@ Route::get('/mycomment','HomeController@mycomment')->name('home.mycomment');
 Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
 //いいね機能
-
+Route::post('/like/{postId}','LikeController@store');
+Route::post('/unlike/{postId}','LikeController@destroy');
 
 //ログイン中のユーザーのみアクセス可能
 Route::group(['middleware' => ['auth']], function () {

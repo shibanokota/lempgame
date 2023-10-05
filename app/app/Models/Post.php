@@ -21,6 +21,9 @@ class Post extends Model
     public function comments() {
         return $this->hasMany('App\Models\Comment');
     }
+    public function likes() {
+        return $this->hasMany('App\Models\Like');
+    }
     public function isLiked($user_id)
     {
         return $this->likes()->where('user_id', $user_id)->exists();
