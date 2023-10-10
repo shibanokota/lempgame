@@ -38,7 +38,7 @@
                             <div>投稿日</div>
                             <div><strong> 
                                 <!-- {{-- ③投稿作成日 --}} -->
-                                {{$post->created_at->diffForHumans()}}  
+                                {{$post->created_at}}  
                             </strong>  </div>
                         </div>
                     </div>
@@ -57,26 +57,24 @@
                             コメント {{$post->comments->count()}}件
                         </span>
                     @else
-                        <span>コメントはまだありません。</span>
+                        <span class="badge badge-success">コメントはまだありません。</span>
                     @endif
 
                     </div>
-                    <div class="px-4 pt-3">
-                    @if ($post->likes->count())
-                        <span class="badge badge-success">
-                            イイネ {{$post->likes->count()}}件
-                        </span>
-                    @else
-                        <span>イイネ0件</span>
-                    @endif
-
-                    </div>
+                    
                     <div class="px-4 pt-3"> 
+                    <script>
+$(function() {
+    $(".A").click(function() {
+        $(".A").toggleClass("C");
+    });
+});
+</script>
                     <script src="{{ asset('/js/like.js') }}"></script>
-                    <button onclick="like({{$post->id}})">イイネ</button>
+                    <button onclick="like({{$post->id}})" class=A>イイネ</button>
                     
                     <script src="{{ asset('/js/unlike.js') }}"></script>
-                    <button onclick="unlike({{$post->id}})">取り消し</button>
+                    <button onclick="unlike({{$post->id}})" class=B>取り消し</button>
                        <button type="button" class="btn btn-primary">
                           <a href="{{route('post.show', $post)}}" style="color:white;">コメントする</a>
                       </button> 

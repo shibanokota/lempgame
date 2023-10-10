@@ -19,4 +19,5 @@ class LikeController extends Controller
         Auth::user()->unlike($postId);
         return 'ok!'; //レスポンス内容
     }
+    
 }

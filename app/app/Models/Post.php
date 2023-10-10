@@ -35,4 +35,5 @@ class Post extends Model
 
         return $posts;
     }
+    
 }

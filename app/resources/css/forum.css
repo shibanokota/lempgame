@@ -57,3 +57,14 @@ a{
     width: 40px;
     height: auto
 }
+.A,.B{
+    background: #CCC;
+    padding: 10px;
+    margin: 10px;
+}
+.A{
+    cursor: pointer;
+}
+.C{
+    color: #fff;background-color: #E91E63;border-color: #e91e9b
+}

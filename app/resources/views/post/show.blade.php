@@ -36,8 +36,15 @@
         @endif
     </div>
     <div class="card-footer">
+    @if ($post->likes->count())
+            <span class="badge badge-success">
+            イイネ{{$post->likes->count()}}件
+            </span>
+        @else
+            <span class="badge badge-success">イイネ0件</span>
+        @endif
         <span class="mr-2 float-right">
-            投稿日時 {{$post->created_at->diffForHumans()}}
+            投稿日時 {{$post->created_at}}
         </span>
     </div>
 </div>

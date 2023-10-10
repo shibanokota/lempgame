@@ -6,10 +6,11 @@ function like(postId) {
       url: `/like/${postId}`,
       type: "POST",
     })
-      .done(function (data, status, xhr) {
+    .done(function (data, status, xhr) {
         console.log(data);
-      })
-      .fail(function (xhr, status, error) {
+    })
+    .fail(function (xhr, status, error) {
         console.log();
-      });
+    });
+
   }
