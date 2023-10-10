@@ -40,6 +40,7 @@ class User extends Authenticatable
         //もし既に「いいね」していたら何もしない
       } else {
         $this->likes()->attach($postId);
+        
       }
     }
 

@@ -57,26 +57,31 @@
                             コメント {{$post->comments->count()}}件
                         </span>
                     @else
-                        <span class="badge badge-success">コメントはまだありません。</span>
+                        <span class="badge badge-success">コメント無し</span>
                     @endif
 
                     </div>
                     
                     <div class="px-4 pt-3"> 
                     <script>
-$(function() {
-    $(".A").click(function() {
-        $(".A").toggleClass("C");
-    });
-});
-</script>
+                    $(function() {
+                        $(".A").on('click',function(){
+                            alert("イイネしました。");
+                            (".A").off();
+                        });
+                        $(".B").on('click',function(){
+                            alert("イイネを取り消しました。");
+                            (".B").off();
+                        });
+                    });
+                    </script>
                     <script src="{{ asset('/js/like.js') }}"></script>
                     <button onclick="like({{$post->id}})" class=A>イイネ</button>
                     
                     <script src="{{ asset('/js/unlike.js') }}"></script>
                     <button onclick="unlike({{$post->id}})" class=B>取り消し</button>
-                       <button type="button" class="btn btn-primary">
-                          <a href="{{route('post.show', $post)}}" style="color:white;">コメントする</a>
+                       <button type="button" >
+                          <a href="{{route('post.show', $post)}}" style="color:black;">コメントする</a>
                       </button> 
                     </div>
                 </div>

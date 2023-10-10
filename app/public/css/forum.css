@@ -57,14 +57,3 @@ a{
     width: 40px;
     height: auto
 }
-.A,.B{
-    background: #CCC;
-    padding: 10px;
-    margin: 10px;
-}
-.A{
-    cursor: pointer;
-}
-.C{
-    background: green;
-}

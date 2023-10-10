@@ -11,7 +11,7 @@ class LikeController extends Controller
     public function store($postId)
     {
         Auth::user()->like($postId);
-        return 'ok!'; //レスポンス内容
+        return 'ok!' ; //レスポンス内容
     }
 
     public function destroy($postId)
