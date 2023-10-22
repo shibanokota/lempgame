@@ -80,8 +80,8 @@
                     
                     <script src="{{ asset('/js/unlike.js') }}"></script>
                     <button onclick="unlike({{$post->id}})" class=B>取り消し</button>
-                       <button type="button" >
-                          <a href="{{route('post.show', $post)}}" style="color:black;">コメントする</a>
+                       <button type="button" class="btn btn-primary">
+                          <a href="{{route('post.show', $post)}}" style="color:white;">コメントする</a>
                       </button> 
                     </div>
                 </div>

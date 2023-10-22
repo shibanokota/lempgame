@@ -124,6 +124,9 @@ class PostController extends Controller
     {
         $this->authorize('delete', $post);
         $post->comments()->delete();
+
+        $this->authorize('delete', $post);
+        $post->likes()->delete();
         
         Storage::delete('public/images/'.$post->image);
 
